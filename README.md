@@ -1,4 +1,4 @@
-# Spring boot,MySql and Redis Application 
+# Data caching in Spring boot with Redis and MySQL
 Below are the steps to run the application: 
 
 1. Run MYSQL Docker image
@@ -17,17 +17,15 @@ Below are the steps to run the application:
 
 4. Import the Postman collection from the `postman` folder . 
 
-5. Send request `GetAll` using the Postman collection.
-   folder) 
-   You can see the 1000 records fetched from DB.
+5. Send request `GetAll` using the Postman collection.<br>
+   You can see the 1000 records fetched from DB.<br>
    If try second time, you can see the same 1000 records but those are pulled from redis cache.
 
 6. Connect redis-cli by using below command and verify the keys.
 
    ```bash
    $ docker exec -it myredis redis-cli 
-   $ 127.0.0.1:6379> KEYS *
-   127.0.0.1:6379> KEYS *
+   $ 127.0.0.1:6379> KEYS * 
    //result
        1) "Customers::allCustomers"
    ```
